@@ -155,3 +155,50 @@ void PositionPro_rank(const vector<int> &D, vector<int> &C) {
     M[D_local[i]] = M[i];
   }
 }
+
+/**
+ * @brief LOOKUP 1: Get Value at Specific Position (Backward Tracing).
+ * Answers: "What is the number stored at index k?"
+ * Complexity: O(N-k) average, O(N) worst case. Read-only.
+ */
+int PP_get_value_at_position(const std::vector<int> &C, int k) {
+  int current_target_pos = k;
+  int n = C.size();
+
+  // Backward scanning: The last person to write to a position determines its
+  // value.
+  for (int i = n - 1; i >= 0; --i) {
+    if (i > current_target_pos) {
+      // Check if loop index 'i' was injected into our target position
+      if (C[i] == current_target_pos) {
+        return i;
+      }
+    } else if (i == current_target_pos) {
+      // Inheritance: The value was moved from C[i] to i at this step
+      current_target_pos = C[i];
+    }
+  }
+  return current_target_pos;
+}
+
+/**
+ * @brief LOOKUP 2: Find Position of Specific Value (Forward Tracking).
+ * Answers: "Where is the number X located?"
+ * Complexity: O(N-X). Read-only.
+ */
+int PP_find_position_of_value(const std::vector<int> &C, int X) {
+  int n = C.size();
+  if (X < 0 || X >= n)
+    return -1;
+
+  // Forward tracking: Once injected at i=X, follow the "flow" to higher
+  // indices.
+  int current_pos = C[X];
+
+  for (int i = X + 1; i < n; ++i) {
+    if (C[i] == current_pos) {
+      current_pos = i;
+    }
+  }
+  return current_pos;
+}
