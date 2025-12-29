@@ -22,6 +22,21 @@ The **Position Pro (PP)** algorithm is built upon the foundational work of **Wen
 
 While the MR algorithm uses a specific swap-based approach, the PP method introduces a more intuitive indexing logic $D[i]$ that simplifies the implementation and enhances understanding of the mapping process.
 
+## 💡 Future Ideas & Extensions
+
+### 1. Zero-Memory "Lazy" Permutation
+Since we can determine any value at position `k` in O(N) time without generating the full array, we can implement a **Lazy-Loaded Permutation Object**. 
+- **Use Case:** Accessing elements of a massive permutation (N > 10^6) that exceeds RAM capacity.
+- **Concept:** Overload `operator[]` to call `PP_get_value_at_position(k)` on the fly.
+
+### 2. SIMD-Accelerated Partial Search
+The backward-tracing logic `if (C[i] == current_target_pos)` is highly vectorizable. 
+- **Idea:** Use AVX-512 to scan 16 elements of `C` simultaneously.
+- **Goal:** Achieve near O(1) perceived latency for individual element lookups.
+
+### 3. Distributed Constrained Search
+Leverage the independence of the `get_value` function to split a single permutation validation task across multiple CPU cores or network nodes without shared state.
+
 ## 💡 Why Position Pro?
 The **Position Pro (PP)** algorithm provides a more intuitive $O(n)$ implementation compared to the classic Myrvold-Ruskey (MR) method:
 * **Simpler Indexing**: Replaces the traditional swap-based unranking with a direct mapping logic.
