@@ -73,12 +73,6 @@ The table below demonstrates the performance of **PositionPro (permpro_full)** c
 
 ---
 
-#### **数据分析结论**
-* **效率提升**：`permpro_full` 在所有测试用例中均表现出显著优势，平均运行速度比 `heap_perm` 快了约 **6 倍**。
-* **吞吐量**：在 $n=13$ 时，`permpro_full` 处理超过 62 亿个排列仅需不到 4 秒，展现了极佳的指令级效率。
-* **算法优势**：这种性能差异不仅源于代码实现，更源于 PositionPro 算法在处理全排列生成时更优的访存模式和更低的计算开销。
----
-
 #### **Performance Insight**
 * **Consistent Efficiency:** `permpro_full` consistently outperforms Heap's Algorithm by a factor of **~6x**.
 * **Scalability:** As the permutation space grows factorially, the performance gap remains stable, demonstrating excellent algorithmic efficiency for large-scale generation.
