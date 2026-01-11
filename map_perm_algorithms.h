@@ -19,10 +19,10 @@ void Position_unrank(const std::vector<int> &C, std::vector<int> &D);
 // Converts permutation D to factorial index array C
 void Position_rank(const std::vector<int> &D, std::vector<int> &C);
 
-// PositionPro unrank algorithm
-void PositionPro_unrank(const std::vector<int> &C, std::vector<int> &D);
+// PositionPure unrank algorithm
+void PositionPure_unrank(const std::vector<int> &C, std::vector<int> &D);
 
-// PositionPro rank algorithm
-void PositionPro_rank(const std::vector<int> &D, std::vector<int> &C);
+// PositionPure rank algorithm
+void PositionPure_rank(const std::vector<int> &D, std::vector<int> &C);
 
 #endif // MAP_PERM_ALGORITHMS_H
