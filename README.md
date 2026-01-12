@@ -2,7 +2,8 @@
 [![Language: C++](https://img.shields.io/badge/Language-C%2B%2B-red.svg)](#)
 [![Complexity: O(n)](https://img.shields.io/badge/Complexity-O(n)-brightgreen.svg)](#)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18170157.svg)](https://doi.org/10.5281/zenodo.18170157)
-
+![Permutation Generation](https://img.shields.io/badge/Field-Combinatorial_Algorithms-blue)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0005--1980--5751-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0005-1980-5751)
 ---
 
 ## 📢 Important Update: From "Position Pro" to "Position Pure"
