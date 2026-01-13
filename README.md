@@ -63,6 +63,18 @@ The following results were recorded on a single core of a mobile-class processor
 * **OS**: Windows 10/11
 * **Compiler**: GCC/MinGW with `-O3` optimization
 
+## 🛠 Compilation Commands
+
+The following commands compile both algorithms using the same aggressive optimization flags to ensure a fair performance comparison:
+
+```bash
+# Compile Heap's Permutation
+g++ -O3 -std=c++11 -march=native -flto -ffast-math -fomit-frame-pointer heap_perm.cpp -o heap_test -pthread
+
+# Compile Position-Pure
+g++ -O3 -std=c++11 -march=native -flto -ffast-math -fomit-frame-pointer permpure_full.cpp -o pure_test -pthread
+```
+
 | $N$ (Size) | Total Permutations ($N!$) | Execution Time (Seconds) | Throughput (Perms/Sec) |
 | :--- | :--- | :--- | :--- |
 | **12** | 479,001,600 | **0.272373** | ~1.75 Billion |
