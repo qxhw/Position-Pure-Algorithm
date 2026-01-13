@@ -74,9 +74,13 @@ int main() {
     // --- End Timing ---
     auto finish = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = finish - start;
-
-    printf("\nheap_perm\tN=%u\tTime: %lf seconds", PERM_SIZE, duration.count());
-    printf("\nFinal D[%d] = %d, Checksum = %llu\n", PERM_SIZE-1, D[PERM_SIZE-1], checksum);
+    
+    // Standardized output for easy parsing
+    printf("\nREPORT_START");
+    printf("\nALGORITHM: heap_perm");
+    printf("\nEXECUTION_TIME: %lf", duration.count());
+    printf("\nCHECKSUM: %llu", checksum);
+    printf("\nREPORT_END\n");
 
     return 0;
 }
