@@ -22,7 +22,6 @@ jobs:
         echo "========== Hardware Environment =========="
         lscpu | grep "Model name"
         lscpu | grep "CPU MHz"
-        lscpu | grep "L3 cache"
         echo "=========================================="
 
     - name: Compile heap_perm.cpp
