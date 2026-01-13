@@ -20,8 +20,8 @@ jobs:
 
     - name: Compile Both Algorithms
       run: |
-        g++ -O3 -std=c++11 heap_perm.cpp -o heap_test -pthread
-        g++ -O3 -std=c++11 permpure_full.cpp -o pure_test -pthread
+        g++ -O3 -std=c++11 -march=native -ffast-math -fomit-frame-pointer heap_perm.cpp -o heap_test -pthread
+        g++ -O3 -std=c++11 -march=native -ffast-math -fomit-frame-pointer permpure_full.cpp -o pure_test -pthread
 
     - name: Execute and Capture Results
       id: run_tests
