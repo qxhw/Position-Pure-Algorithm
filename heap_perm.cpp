@@ -15,7 +15,7 @@
  */
 #include "stdio.h"
 #include "time.h"
-#include "windows.h" // Add Windows API header file
+//#include "windows.h" // Add Windows API header file
 #ifndef PERM_SIZE
 #define PERM_SIZE 12
 #endif
