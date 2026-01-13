@@ -95,9 +95,13 @@ int main() {
 
     auto finish = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = finish - start;
-
-    printf("\npermpure_full\t%u\t%lf seconds", PERM_SIZE, duration.count());
-    printf("\nD[PERM_SIZE-1] = %d, checksum = %llu\n", D[PERM_SIZE-1], checksum);
+    
+    // Standardized output for easy parsing
+    printf("\nREPORT_START");
+    printf("\nALGORITHM: permpure_full");
+    printf("\nEXECUTION_TIME: %lf", duration.count());
+    printf("\nCHECKSUM: %llu", checksum);
+    printf("\nREPORT_END\n");
 
 #ifdef DEBUG
     // Debug info logic preserved
@@ -118,3 +122,4 @@ int main() {
 
     return 0;
 }
+
