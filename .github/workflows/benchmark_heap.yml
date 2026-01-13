@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch: # Allows manual triggering from the GitHub Actions UI
+  workflow_dispatch:
 
 jobs:
   run-heap-perm:
@@ -16,25 +16,24 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-  - name: Hardware Diagnostics (CPU Info)
-      # Adding '|| true' ensures the workflow continues even if a specific grep fails
+    - name: Hardware Diagnostics (CPU Info)
+      # Using '|| true' to prevent exit code 1 if a string is not found
       run: |
         echo "========== Hardware Environment =========="
         lscpu | grep "Model name" || true
         lscpu | grep "CPU MHz" || true
-        lscpu | grep "L3 cache" || true
-        echo "Full CPU Details:"
+        echo "------------------------------------------"
+        echo "Full LSCPU Output for Reference:"
         lscpu
         echo "=========================================="
 
     - name: Compile heap_perm.cpp
-      # Using -O3 optimization for peak algorithmic performance
       run: g++ -O3 heap_perm.cpp -o heap_perm_test
 
     - name: Execution and Performance Profiling
-      # 'time' command outputs real, user, and sys time to the console
-      # Redirecting stdout to /dev/null to focus purely on algorithmic latency
+      # If your code requires manual input, it might hang. 
+      # I added 'echo 10 |' as a placeholder to prevent hanging if cin is used.
       run: |
         echo "Starting performance profiling..."
-        time ./heap_perm_test > /dev/null
+        echo 10 | time ./heap_perm_test > /dev/null
         echo "Profiling completed."
