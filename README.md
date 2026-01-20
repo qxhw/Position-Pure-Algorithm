@@ -96,6 +96,16 @@ The table below demonstrates the performance of **PositionPure (permPure_full)**
 
 ---
 
+### Comparison with Python's Built-in itertools
+
+At the request of Reddit users and other community members, a performance comparison with Python’s built-in `itertools` was conducted. Results are based on the implementation in `Position-Pure-Algorithm/python/pp_iter.py`.
+
+* **Runtime Environment**: The tests were performed using **PyPy3**. Since the standard `itertools` library is C-optimized, using PyPy3 helps bridge the low-level language gap, allowing for a more authentic comparison of algorithmic efficiency.
+* **Results**: Benchmark tests show that this algorithm improves performance by at least **1.4x**, with potential gains reaching over **2x** compared to the standard library.
+* **Future Plans**: For applications requiring even higher performance, a **C-compiled version** should be considered.
+
+---
+
 #### **Key Insights**
 * **Significant Speedup:** `permPure_full` consistently outperforms Heap's Algorithm by a factor of approximately **6x**.
 * **High Throughput:** For $n=13$, `permPure_full` processes over **6.2 billion permutations** in under 4 seconds, showcasing exceptional instruction-level efficiency.
